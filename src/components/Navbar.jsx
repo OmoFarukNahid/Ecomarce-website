@@ -5,17 +5,29 @@ import { PhoneIcon, Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
 
+  const handleHomeClick = () => {
+    if (window.location.pathname === '/') {
+      window.location.reload();
+    }
+  };
+
   return (
     <nav className="navbar">
       <div className="container nav-container">
-        <Link to="/" className="logo">Omar Bin Sayem - Technical Solutions</Link>
+        <Link to="/" className="logo" onClick={handleHomeClick}>
+          <div className="logo-arabic">ةينفلا تامدخلل مياص نيب رمع</div>
+          <div className="logo-english">
+            OMAR BIN SAYEM<br />
+            <span className="orange-text">Technical Solutions</span>
+          </div>
+        </Link>
         
         <div className="nav-links">
-          <Link to="/">Home</Link>
-          <Link to="/services">Services</Link>
-          <Link to="/about">About Us</Link>
-          <Link to="/contact">Contact</Link>
-          <a href="tel:+1234567890" className="nav-phone">
+          <Link to="/" onClick={handleHomeClick}>Home</Link>
+          <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
+          <Link to="/about" onClick={() => setIsOpen(false)}>About Us</Link>
+          <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
+          <a href="tel:+971502088575" className="nav-phone">
             <PhoneIcon className="icon" />
             +971502088575
           </a>
@@ -28,7 +40,7 @@ const Navbar = () => {
       
       {isOpen && (
         <div className="mobile-nav">
-          <Link to="/" onClick={() => setIsOpen(false)}>Home</Link>
+          <Link to="/" onClick={() => { setIsOpen(false); handleHomeClick(); }}>Home</Link>
           <Link to="/services" onClick={() => setIsOpen(false)}>Services</Link>
           <Link to="/about" onClick={() => setIsOpen(false)}>About Us</Link>
           <Link to="/contact" onClick={() => setIsOpen(false)}>Contact</Link>
