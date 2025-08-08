@@ -1,16 +1,18 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter } from 'react-router-dom';
+import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 
+// Determine basename dynamically
+const basename = process.env.NODE_ENV === 'production' ? '/Ecomarce-website' : '/';
+
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Use process.env.PUBLIC_URL as basename for both dev and production
 root.render(
   <React.StrictMode>
-    <BrowserRouter basename={process.env.PUBLIC_URL}>
+    <HashRouter basename={basename}>
       <App />
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>
 );
