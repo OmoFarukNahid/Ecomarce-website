@@ -6,18 +6,11 @@ import App from './App';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 
-// Set mounted attribute before render
-document.documentElement.setAttribute('data-mounted', 'false');
-
+// Use process.env.PUBLIC_URL as basename for both dev and production
 root.render(
   <React.StrictMode>
-    <BrowserRouter>
+    <BrowserRouter basename={process.env.PUBLIC_URL}>
       <App />
     </BrowserRouter>
   </React.StrictMode>
 );
-
-// Signal when app is mounted
-window.addEventListener('load', () => {
-  document.documentElement.setAttribute('data-mounted', 'true');
-});

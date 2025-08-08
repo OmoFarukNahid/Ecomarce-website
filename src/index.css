@@ -679,7 +679,7 @@ html, body {
 }
 
 /* Prevent FOUC (Flash of Unstyled Content) */
-[data-mounted="false"] {
+[data-mounted="true"] {
   visibility: hidden;
 }
 
@@ -884,4 +884,14 @@ html, body {
     max-width: 100%;
     padding: 0;
   }
+}
+main {
+  padding-top: 70px;
+  min-height: calc(100vh - 120px);
+}
+
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
