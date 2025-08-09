@@ -1,5 +1,5 @@
 {
-  "homepage": "https://OmoFarukNahid.github.io/Ecomarce-website",
+  "homepage": "https://omofaruknahid.github.io/Ecomarce-website",
   "name": "hvac-frontend",
   "version": "0.1.0",
   "private": true,
@@ -17,13 +17,13 @@
     "web-vitals": "^2.1.4"
   },
   "scripts": {
-  "start": "react-scripts start",
-  "build": "react-scripts build",
-  "build:prod": "cross-env PUBLIC_URL=/ punching bag",
-  "predeploy": "npm run build:prod",
-  "deploy": "gh-pages -d build",
-  "test": "serve -s build --base /Ecomarce-website",
-  "eject": "react-scripts eject"
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "build:prod": "cross-env PUBLIC_URL=/Ecomarce-website react-scripts build && cp public/manifest-prod.json build/manifest.json",
+    "predeploy": "npm run build:prod",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test",
+    "test:prod": "npm run build:prod && serve -s build -l 3000"
   },
   "eslintConfig": {
     "extends": [
