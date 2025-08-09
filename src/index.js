@@ -4,28 +4,45 @@ import { HashRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 
-// Dynamic basename detection for GitHub Pages
+// Dynamic public URL handling (critical for GitHub Pages)
+const publicUrl = process.env.PUBLIC_URL || '';
 const isGitHubPages = window.location.hostname.includes('github.io');
-const basename = isGitHubPages ? '/Ecomarce-website' : '/';
 
-// Error boundary for better debugging
+// Enhanced Error Boundary with production logging
 class ErrorBoundary extends React.Component {
-  state = { hasError: false };
+  state = { hasError: false, error: null };
 
-  static getDerivedStateFromError() {
-    return { hasError: true };
+  static getDerivedStateFromError(error) {
+    return { hasError: true, error };
   }
 
-  componentDidCatch(error, info) {
-    console.error('App Error:', error, info);
+  componentDidCatch(error, errorInfo) {
+    if (process.env.NODE_ENV === 'production') {
+      console.error('Production Error:', error, errorInfo);
+    }
   }
 
   render() {
     if (this.state.hasError) {
       return (
-        <div style={{ padding: '20px', color: 'red' }}>
-          <h2>App Crashed</h2>
-          <p>Check console for errors</p>
+        <div style={{
+          padding: '2rem',
+          textAlign: 'center',
+          color: '#721c24',
+          backgroundColor: '#f8d7da'
+        }}>
+          <h2>Something went wrong</h2>
+          <p>{this.state.error?.message}</p>
+          <button 
+            onClick={() => window.location.reload()}
+            style={{
+              padding: '0.5rem 1rem',
+              marginTop: '1rem',
+              cursor: 'pointer'
+            }}
+          >
+            Reload App
+          </button>
         </div>
       );
     }
@@ -38,7 +55,7 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
     <ErrorBoundary>
-      <HashRouter basename={basename}>
+      <HashRouter basename={isGitHubPages ? publicUrl : ''}>
         <App />
       </HashRouter>
     </ErrorBoundary>
