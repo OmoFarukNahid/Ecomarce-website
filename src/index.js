@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import { HashRouter } from 'react-router-dom';
 import './index.css';
-import App from './App';
+import App from './App.js';
 
 // Dynamic public URL handling (critical for GitHub Pages)
 const publicUrl = process.env.PUBLIC_URL || '';
