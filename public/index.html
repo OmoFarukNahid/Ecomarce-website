@@ -1,29 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
-    <meta
-      name="description"
-      content="HVAC Solutions Website"
-    />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
-    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
-    <title>HVAC Solutions</title>
-  </head>
-  <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
-    <div id="root"></div>
-    <!-- 404 Handling for GitHub Pages -->
-    <script>
-      (function() {
-        const pathSegments = window.location.pathname.split('/').filter(Boolean);
-        if (pathSegments.length > 1 && !document.getElementById('root').hasChildNodes()) {
-          window.location.href = '/ecomarce-website/';
-        }
-      })();
-    </script>
-  </body>
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#000000" />
+  <meta name="description" content="HVAC Solutions Website" />
+  <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
+  <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+  <title>HVAC Solutions</title>
+</head>
+<body>
+  <noscript>You need to enable JavaScript to run this app.</noscript>
+  <div id="root"></div>
+
+  <script>
+    (function() {
+      const path = window.location.pathname;
+      if (path.split('/').filter(Boolean).length > 0 && 
+          path !== '/ecomarce-website/' && 
+          !document.getElementById('root').hasChildNodes()) {
+        window.location.href = '/ecomarce-website/';
+      }
+    })();
+  </script>
+</body>
 </html>
