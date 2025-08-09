@@ -2,19 +2,56 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#000000" />
     <meta
       name="description"
-      content="Ecomarce Website - Your online shopping destination"
+      content="Ecomarce - Your online shopping destination"
     />
+    
+    <!-- Favicon & Web App Manifest -->
+    <link rel="icon" href="%PUBLIC_URL%/favicon.ico" />
     <link rel="apple-touch-icon" href="%PUBLIC_URL%/logo192.png" />
     <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
+
+    <!-- Critical for GitHub Pages -->
+    <base href="%PUBLIC_URL%/">
+    
+    <!-- Preload important resources -->
     <title>Ecomarce</title>
+
+    <!-- Preconnect to external domains if needed -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    
+    <!-- Fallback for JS-disabled browsers -->
+    <noscript>
+      <style>
+        body { 
+          font-family: sans-serif; 
+          padding: 2rem;
+          text-align: center; 
+        }
+      </style>
+      <h1>JavaScript Required</h1>
+      <p>This app requires JavaScript to function properly.</p>
+    </noscript>
   </head>
   <body>
-    <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    
+    <!-- Production Error Catcher -->
+    <script>
+      window.addEventListener('error', function(e) {
+        console.error('Global Error:', e.error);
+        document.getElementById('root').innerHTML = `
+          <div style="padding: 20px; color: red;">
+            <h2>Application Error</h2>
+            <p>${e.message}</p>
+            <p>Check console for details</p>
+          </div>
+        `;
+      });
+    </script>
   </body>
 </html>
