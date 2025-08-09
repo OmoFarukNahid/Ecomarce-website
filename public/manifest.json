@@ -3,22 +3,22 @@
   "name": "HVAC Frontend",
   "icons": [
     {
-      "src": "/Ecomarce-website/favicon.ico",
+      "src": "/ecomarce-website/favicon.ico",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "/Ecomarce-website/logo192.png",
+      "src": "/ecomarce-website/logo192.png",
       "type": "image/png",
       "sizes": "192x192"
     },
     {
-      "src": "/Ecomarce-website/logo512.png",
+      "src": "/ecomarce-website/logo512.png",
       "type": "image/png",
       "sizes": "512x512"
     }
   ],
-  "start_url": "/Ecomarce-website/",
+  "start_url": "/ecomarce-website/",
   "display": "standalone",
   "theme_color": "#000000",
   "background_color": "#ffffff"

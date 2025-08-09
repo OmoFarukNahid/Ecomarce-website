@@ -2,8 +2,9 @@ import React, { Suspense } from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
+import LoadingSpinner from './components/LoadingSpinner'; // Your existing component
 
-// Lazy load page components
+// Lazy load pages
 const Home = React.lazy(() => import('./pages/Home'));
 const ServicesPage = React.lazy(() => import('./pages/Services'));
 const About = React.lazy(() => import('./pages/About'));
@@ -14,13 +15,7 @@ function App() {
     <div className="app">
       <Navbar />
       <main>
-        <Suspense
-          fallback={
-            <div className="full-page-loader">
-              <div className="loading-spinner"></div>
-            </div>
-          }
-        >
+        <Suspense fallback={<LoadingSpinner />}>
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/services" element={<ServicesPage />} />
