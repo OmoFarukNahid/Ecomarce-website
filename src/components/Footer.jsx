@@ -30,7 +30,7 @@ const Footer = () => {
         </div>
         
         <div className="footer-bottom">
-          <p>&copy; {new Date().getFullYear()} Omar Bin Sayem - Technical Solutions. All rights reserved.</p>
+          <p>&copy; {new Date().getFullYear()} OMAR BIN SAYEM - Technical Services. All rights reserved.</p>
         </div>
       </div>
     </footer>

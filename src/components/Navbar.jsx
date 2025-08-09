@@ -12,7 +12,7 @@ const Navbar = () => {
           <div className="logo-arabic">ةينفلا تامدخلل مياص نيب رمع</div>
           <div className="logo-english">
             OMAR BIN SAYEM<br />
-            <span className="orange-text">Technical Solutions</span>
+            <span className="orange-text">Technical Services</span>
           </div>
         </Link>
         
