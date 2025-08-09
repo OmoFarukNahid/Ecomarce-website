@@ -20,7 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "build:prod": "cross-env PUBLIC_URL=/Ecomarce-website react-scripts build && cp public/manifest-prod.json build/manifest.json",
-    "predeploy": "npm run build:prod",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
     "test": "react-scripts test",
     "test:prod": "npm run build:prod && serve -s build -l 3000"
