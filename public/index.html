@@ -16,10 +16,14 @@
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <!-- 404 Handling for GitHub Pages -->
     <script>
-      if (window.location.pathname.split('/').filter(Boolean).length > 1 && !document.getElementById('root').hasChildNodes()) {
-        window.location.href = '/ecomarce-website/';
-      }
+      (function() {
+        const pathSegments = window.location.pathname.split('/').filter(Boolean);
+        if (pathSegments.length > 1 && !document.getElementById('root').hasChildNodes()) {
+          window.location.href = '/ecomarce-website/';
+        }
+      })();
     </script>
   </body>
 </html>
